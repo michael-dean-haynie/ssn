@@ -14,3 +14,15 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*
+|--------------------------------------------------------------------------
+| /api
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('api')->group(function(){
+    Route::post('user', 'ApiController@createUser');
+    Route::post('friendship', 'ApiController@createFriendship');
+    Route::get('friendship/check', 'ApiController@checkFriendship');
+});
