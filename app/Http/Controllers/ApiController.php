@@ -42,10 +42,10 @@ class ApiController extends Controller
         }
 
         // check users exist
-        $userA = User::where('name', $req->user_a)->get();
-        $userB = User::where('name', $req->user_b)->get();
+        $userA = User::find($req->user_a);
+        $userB = User::find($req->user_b);
 
-        if (!count($userA) || !count($userB)){
+        if (!$userA || !$userB){
             return \Response::json(['message' => "One or more of those users do not exist."], 400);
         }
 
@@ -77,6 +77,16 @@ class ApiController extends Controller
     }
 
     public function checkFriendship(Request $req){
-        
+        // check users exist
+        $userA = User::find($req->user_a);
+        $userB = User::find($req->user_b);
+
+        if (!count($userA) || !count($userB)){
+            return \Response::json(['message' => "One or more of those users do not exist."], 400);
+        }
+
+        $areFriends = $userA->isDirectFriendOf($userB->name) || $userA->isIndirectFriendOf($userB->name);
+
+        return \Response::json(['message' => $areFriends], 400);
     }
 }
