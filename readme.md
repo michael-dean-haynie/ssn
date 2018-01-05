@@ -29,17 +29,18 @@ I chose to use Laravel (v5.5.27) just becaues I'm most familiar with it at the m
 
 ### Requirements
 1. PHP >= 7.0.0
-2. A local MySQL server instance
+2. PHP Composer
+3. A local MySQL server instance
 
 ### Application Setup
 
 1. Clone this repo: https://github.com/michael-dean-haynie/ssn.git
 2. Check out _master_
-3. From the project root, in terminal/cmd run "composer install" (alternatively you can checkout the "no-composer" branch that includes all the dependencies allowing you to skip this step.)
+3. From the project root, in terminal/cmd run "**composer install**"
 4. Save /.env.example as /.env
 5. Initialize DB and DB user for the application by running  /database/create\_db\_and\_user.sql
-6. From the project root, use laravel's command line tool 'artisan' to run the schema migrations "php artisan migrate"
-7. From the project root, serve the application by running "php artisan serve"
+6. From the project root, use laravel's command line tool 'artisan' to run the schema migrations "**php artisan migrate**"
+7. From the project root, serve the application by running "**php artisan serve**"
 8. In a browser navigate to http://localhost:8000 to verify that the application is indeed being served.
 
 ## API Description
@@ -54,7 +55,7 @@ I chose to use Laravel (v5.5.27) just becaues I'm most familiar with it at the m
 * Requires 2 request-body parameters ('user\_a' and 'user\_b') who's values are the names of the users the friendship is being created for.
 
 #### GET /api/friendship/check
-* Checks if 2 users are direct or indirect friends. Returns true or false.
+* Checks if 2 users are friends (direct or indirect). Returns true or false.
 * Requires 2 query-string parameters ('user\_a' and 'user\_b') who's values are the names of the users that are being checked.
 
 * ex: /api/friendship/check?user\_a=John&user\_b=Jane
