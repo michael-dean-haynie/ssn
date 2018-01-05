@@ -26,7 +26,7 @@ class ApiController extends Controller
         $user->name = $req->name;
         $success = $user->save();
 
-        return \Response::json($success ? $successJson : $failureJson, $success ? 200 : 500);
+        return \Response::json($success ? $sJson : $fJson, $success ? 200 : 500);
     }
 
     public function createFriendship(Request $req){
