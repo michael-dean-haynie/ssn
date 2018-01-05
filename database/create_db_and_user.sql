@@ -4,5 +4,5 @@ CREATE SCHEMA `ssn`;
 DROP USER IF EXISTS 'ssn-app'@'localhost';
 FLUSH PRIVILEGES; 
 
-CREATE USER 'ssn-app'@'localhost' IDENTIFIED BY '37411b06-24d6-459f-9e8d-890b26a03b22'; 
+CREATE USER 'ssn-app'@'localhost' IDENTIFIED BY 'thisisapassword'; 
 GRANT ALL PRIVILEGES ON ssn.* TO 'ssn-app'@'localhost'
